@@ -1,4 +1,25 @@
-Feel free to change or remove this file, it is informational only.
+# Koken on Openshift (alpha)
+
+A hackity way to install and run [Koken](http://koken.me/) on Redhat's [Openshift](https://www.openshift.com/) Paas.
+
+It has been configured to run on the **Zend Server** Gear with the **MySQL** cartridge.
+
+## How does it work?
+
+I have placed a modified Koken installer in the .openshift folder.  The deploy shell script in the .openshift/action_hooks/ directory instigates the installation when pushed to the server.
+
+## What does the Deploy script do?
+
+The script checks to see if there is a Koken folder in the data directory.  If none is found, it copies the koken folder containing the installer from the .openshift directory to the data directory.
+In order for Koken to be seen on the front end, a symbolic link created in the php/ directory.
+
+## What has changed in the Koken installer?
+
+I have added the environmental variables for the MySQL cartridge (ip address, username, password, db name) to be filled in automatically.
+
+**This is still very much a work in progress.  Use at your own risk**
+
+# Original Openshift Readme
 
 Repo layout
 ===========
