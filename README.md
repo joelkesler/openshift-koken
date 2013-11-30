@@ -19,10 +19,12 @@ I have added the environmental variables for the MySQL cartridge (ip address, us
 
 **This is still very much a work in progress.  Use at your own risk**
 
+
+
+
 # Original Openshift Readme
 
-Repo layout
-===========
+**Repo layout**
 php/ - Externally exposed php code goes here
 libs/ - Additional libraries
 misc/ - For not-externally exposed php code
@@ -34,8 +36,7 @@ deplist.txt - list of pears to install
 .openshift/action_hooks/post_deploy - Script that gets run every git push after the app is restarted
 
 
-Notes about layout
-==================
+###### Notes about layout
 Please leave php, libs and data directories but feel free to create additional
 directories if needed.
 
@@ -44,8 +45,7 @@ please store long term items (like an sqlite database) in ../data which will
 persist between pushes of your repo.
 
 
-Environment Variables
-=====================
+###### Environment Variables
 
 OpenShift provides several environment variables to reference for ease
 of use.  The following list are some common variables but far from exhaustive:
@@ -65,13 +65,11 @@ variables for username, host and password:
 To get a full list of environment variables, simply add a line in your
 .openshift/action_hooks/build script that says "export" and push.
 
-deplist.txt
-===========
 
+###### deplist.txt
 A list of pears to install, line by line on the server.  This will happen when
 the user git pushes.
 
 
-Additional information
-======================
+###### Additional information
 To access the Zend Management console go to http://app-domain.rhcloud.com/ZendServer
