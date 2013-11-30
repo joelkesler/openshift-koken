@@ -25,15 +25,15 @@ I have added the environmental variables for the MySQL cartridge (ip address, us
 # Original Openshift Readme
 
 **Repo layout**
-php/ - Externally exposed php code goes here
-libs/ - Additional libraries
-misc/ - For not-externally exposed php code
-../data - For persistent data (full path in environment var: OPENSHIFT_DATA_DIR)
-deplist.txt - list of pears to install
-.openshift/action_hooks/pre_build - Script that gets run every git push before the build
-.openshift/action_hooks/build - Script that gets run every git push as part of the build process (on the CI system if available)
-.openshift/action_hooks/deploy - Script that gets run every git push after build but before the app is restarted
-.openshift/action_hooks/post_deploy - Script that gets run every git push after the app is restarted
+- php/ - Externally exposed php code goes here
+- libs/ - Additional libraries
+- misc/ - For not-externally exposed php code
+- ../data - For persistent data (full path in environment var: OPENSHIFT_DATA_DIR)
+- deplist.txt - list of pears to install
+- .openshift/action_hooks/pre_build - Script that gets run every git push before the build
+- .openshift/action_hooks/build - Script that gets run every git push as part of the build process (on the CI system if available)
+- .openshift/action_hooks/deploy - Script that gets run every git push after build but before the app is restarted
+- .openshift/action_hooks/post_deploy - Script that gets run every git push after the app is restarted
 
 
 ###### Notes about layout
