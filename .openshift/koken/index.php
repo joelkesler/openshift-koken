@@ -134,8 +134,8 @@
 		{
 			$host = $_ENV['OPENSHIFT_MYSQL_DB_HOST'];
 			$user = $_ENV['OPENSHIFT_MYSQL_DB_USERNAME'];
-			$password = $_POST['password'];
-			$name = $_ENV['OPENSHIFT_MYSQL_DB_PASSWORD'];
+			$password = $_ENV['OPENSHIFT_MYSQL_DB_PASSWORD'];
+			$name = $_ENV['OPENSHIFT_APP_NAME'];
 			$tmp_table = $_POST['prefix'] . 'applications';
 			$db_error = false;
 			$create = $alter = false;
