@@ -132,10 +132,10 @@
 	{
 		if (isset($_POST['database_check']))
 		{
-			$host = $_POST['host'];
-			$user = $_POST['user'];
+			$host = $_ENV['OPENSHIFT_MYSQL_DB_HOST'];
+			$user = $_ENV['OPENSHIFT_MYSQL_DB_USERNAME'];
 			$password = $_POST['password'];
-			$name = $_POST['name'];
+			$name = $_ENV['OPENSHIFT_MYSQL_DB_PASSWORD'];
 			$tmp_table = $_POST['prefix'] . 'applications';
 			$db_error = false;
 			$create = $alter = false;
@@ -979,13 +979,13 @@ OUT;
 
 					<div class="row">
 						<label for="">Hostname</label>
-						<input id="database_hostname" type="text" />
+						<input id="database_hostname" type="text" value="<?php echo $_ENV['OPENSHIFT_MYSQL_DB_HOST'] ?>" />
 
 					</div>
 
 					<div class="row">
 						<label for="">Database name</label>
-						<input id="database_name" type="text" />
+						<input id="database_name" type="text" value="<?php echo $_ENV['OPENSHIFT_APP_NAME'] ?>"/>
 					</div>
 
 				</div>
@@ -994,12 +994,12 @@ OUT;
 
 					<div class="row">
 						<label for="">Username</label>
-						<input id="database_username" type="text" />
+						<input id="database_username" type="text" value="<?php echo $_ENV['OPENSHIFT_MYSQL_DB_USERNAME'] ?>"  />
 					</div>
 
 					<div class="row">
 						<label for="">Password</label>
-						<input id="database_password" type="password" data-optional="true" />
+						<input id="database_password" type="password" data-optional="true" value="<?php echo $_ENV['OPENSHIFT_MYSQL_DB_PASSWORD'] ?>" />
 					</div>
 
 				</div>

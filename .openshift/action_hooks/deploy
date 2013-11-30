@@ -18,7 +18,8 @@ fi
 
 chmod -R 755 $OPENSHIFT_DATA_DIR/img
 
-unset TMOUT
+export TMOUT=3600
+
 
 ln -sf $OPENSHIFT_DATA_DIR/img $OPENSHIFT_REPO_DIR/php/
 ln -sf $OPENSHIFT_DATA_DIR/koken $OPENSHIFT_REPO_DIR/php/
