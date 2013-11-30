@@ -1,0 +1,25 @@
+#!/bin/bash
+# This deploy hook gets executed after dependencies are resolved and the
+# build hook has been run but before the application has been started back
+# up again.  This script gets executed directly, so it could be python, php,
+# ruby, etc.
+
+if [ ! -d $OPENSHIFT_DATA_DIR/img ]; then
+    mkdir $OPENSHIFT_DATA_DIR/img
+fi
+
+if [ ! -d $OPENSHIFT_DATA_DIR/koken ]; then
+    cp -r $OPENSHIFT_REPO_DIR/.openshift/koken $OPENSHIFT_DATA_DIR/koken
+fi
+
+if [ -d $OPENSHIFT_DATA_DIR/templates ]; then
+    rm -rf $OPENSHIFT_DATA_DIR/templates
+fi
+
+chmod -R 755 $OPENSHIFT_DATA_DIR/img
+
+unset TMOUT
+
+ln -sf $OPENSHIFT_DATA_DIR/img $OPENSHIFT_REPO_DIR/php/
+ln -sf $OPENSHIFT_DATA_DIR/koken $OPENSHIFT_REPO_DIR/php/
+# ln -sf $OPENSHIFT_REPO_DIR/php/templates $OPENSHIFT_DATA_DIR/craft/
